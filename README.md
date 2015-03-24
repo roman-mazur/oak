@@ -15,7 +15,9 @@ How to use
 **Manual way**
 
 ```bash
-TODO
+curl https://github.com/roman-mazur/oak/releases/download/v0.1.0/oak-cli.jar > oak-cli.jar
+java -jar oak-cli.jar -cp path/to/your.jar:and/or/library.jar:or/classes/dir -f html -o deps-report
+open deps-report/index.html
 ```
 
 **Gradle plugin**
