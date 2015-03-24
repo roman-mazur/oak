@@ -2,8 +2,10 @@ Oak
 ===
 
 A tool that parses bytecode in the classpath and builds a graph of dependencies between classes.
-Just for fun!
+Just for fun! *Requires Java 8.*
+
 ![Image example](sample.png)
+
 This is like [objc-dependency-visualizer](https://github.com/PaulTaykalo/objc-dependency-visualizer) but for Java.
 And many thanks to an awesome [d3js](http://d3js.org/) library!
 

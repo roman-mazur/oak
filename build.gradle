@@ -7,8 +7,10 @@ buildscript {
   }
 }
 
+boolean hasCredentials = hasProperty('nexusUsername') && hasProperty('nexusPassword')
+
 subprojects {
-  version = "0.1.0"
+  version = "0.1.1-SNAPSHOT"
   group = "com.rmazur.oak"
 
   afterEvaluate {
