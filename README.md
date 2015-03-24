@@ -19,6 +19,14 @@ curl -L https://github.com/roman-mazur/oak/releases/download/v0.1.1/oak-cli.jar 
 java -jar oak-cli.jar -cp path/to/your.jar:and/or/library.jar:or/classes/dir -f html -o deps-report
 open deps-report/index.html
 ```
+Use `-e` parameter to exclude libraries from your graph (using regexps)
+```
+-e android.+ -e rx.+
+```
+or define terminal nodes with `-t` parameter:
+```
+-t retrofit.+
+```
 
 **Gradle plugin**
 TODO
