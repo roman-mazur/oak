@@ -30,3 +30,5 @@ or define terminal nodes with `-t` parameter:
 
 **Gradle plugin**
 TODO
+
+Share your graphs with [#javadv](https://twitter.com/hashtag/javadv) hash!
