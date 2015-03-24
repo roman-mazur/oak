@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+
+dependencies {
+  compile localGroovy()
+  compile gradleApi()
+
+  compile project(':oak')
+}
+
+afterEvaluate {
+  uploadArchives {
+    repositories {
+      mavenDeployer {
+        pom.project {
+          name 'Oak Gradle plugin'
+        }
+      }
+    }
+  }
+}

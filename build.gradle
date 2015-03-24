@@ -1,0 +1,70 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.3'
+  }
+}
+
+subprojects {
+  version = "0.1-SNAPSHOT"
+  group = "com.rmazur.oak"
+
+  afterEvaluate {
+    task sourcesJar(type: Jar) {
+      from sourceSets.main.allSource
+      classifier = 'sources'
+    }
+
+    artifacts {
+      archives sourcesJar
+    }
+
+    signing {
+      required !version.contains("SNAPSHOT")
+      sign configurations.archives
+    }
+
+    uploadArchives {
+      repositories {
+        mavenDeployer {
+          beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+          repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+            if (hasCredentials) {
+              authentication(userName: nexusUsername, password: nexusPassword)
+            }
+          }
+          snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+            if (hasCredentials) {
+              authentication(userName: nexusUsername, password: nexusPassword)
+            }
+          }
+
+          pom.project {
+            name 'Oak'
+            description 'Tool for visualizing Java class dependencies'
+            url 'https://github.com/roman-mazur/oak'
+            inceptionYear '2015'
+
+            scm {
+              url 'https://github.com/roman-mazur/oak'
+              connection 'scm:git:git@github.com:roman-mazur/oak.git'
+              developerConnection 'scm:git:git@github.com:roman-mazur/oak.git'
+            }
+
+            licenses {
+              license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+rootProject.name = 'oak'
+
+include ':oak'
+include ':gradle-plugin'
