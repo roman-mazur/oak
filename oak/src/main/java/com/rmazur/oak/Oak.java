@@ -151,10 +151,10 @@ public final class Oak {
     if (files == null) {
       return Stream.empty();
     }
-    Stream<File> filesStream = Arrays.asList(files).stream();
+    List<File> list = Arrays.asList(files);
     return Stream.concat(
-        filesStream.filter(f -> !f.isDirectory() && f.getName().endsWith(".class")),
-        filesStream.filter(File::isDirectory).flatMap(Oak::classFiles)
+        list.stream().filter(f -> !f.isDirectory() && f.getName().endsWith(".class")),
+        list.stream().filter(File::isDirectory).flatMap(Oak::classFiles)
     );
   }
 

@@ -6,7 +6,7 @@ Just for fun! *Requires Java 8.*
 
 ![Image example](sample.png)
 
-Inspired by [PaulTaykalo's](https://github.com/PaulTaykalo) [objc-dependency-visualizer](https://github.com/PaulTaykalo/objc-dependency-visualizer).
+Inspired by [**PaulTaykalo's**](https://github.com/PaulTaykalo) [objc-dependency-visualizer](https://github.com/PaulTaykalo/objc-dependency-visualizer).
 And many thanks to an awesome [d3js](http://d3js.org/) library!
 
 How to use
